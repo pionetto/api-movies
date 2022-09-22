@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react"; //controla o estado da variável
+import { Link } from "react-router-dom";
 import { API_KEY } from "../../config/key";
 import { Container, MovieList, Movie } from "./styles";
+
 
 function Home() {
 
@@ -25,7 +27,7 @@ function Home() {
             {movies.map(movie => {
                 return (
                     <Movie key={movie.id}>
-                        <a href="https://google.com.br"><img src={`${image_path}${movie.poster_path}`} width="300" height="400" alt={movie.title}/></a>
+                        <Link to={`/details/${movie.id}`}> <img src={`${image_path}${movie.poster_path}`} width="300" height="400" alt={movie.title}/> </Link>
                         <span>{movie.title}</span>                        
                     </Movie>
                 )
